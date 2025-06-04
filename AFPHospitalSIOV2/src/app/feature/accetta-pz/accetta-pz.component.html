@@ -1,50 +1,74 @@
-<div class="form">
-  <label for="nome">Nome</label>
-  <input
-    type="text"
-    id="nome"
-    placeholder="Nome"
-    [(ngModel)]="nome"
-  >
+<div class="form bg-white rounded-lg shadow-lg p-8 max-w-lg mx-auto">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">Accetta Paziente</h2>
 
-  <label for="cognome">Cognome</label>
-  <input
-    type="text"
-    id="cognome"
-    placeholder="Cognome"
-    [(ngModel)]="cognome"
-  >
+  <!-- Nome -->
+  <div class="mb-4">
+    <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome</label>
+    <input
+      type="text"
+      id="nome"
+      placeholder="Nome"
+      [(ngModel)]="nome"
+      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+  </div>
 
-  <label for="dataNascita">Data di nascita</label>
-  <input
-    type="date"
-    id="dataNascita"
-    placeholder="Data di nascita"
-    [(ngModel)]="dataNascita"
-  >
+  <!-- Cognome -->
+  <div class="mb-4">
+    <label for="cognome" class="block text-sm font-medium text-gray-700 mb-2">Cognome</label>
+    <input
+      type="text"
+      id="cognome"
+      placeholder="Cognome"
+      [(ngModel)]="cognome"
+      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+  </div>
 
-  <label for="codiceFiscale">Codice fiscale</label>
-  <input
-    type="text"
-    id="codiceFiscale"
-    placeholder="Codice fiscale"
-    [(ngModel)]="codiceFiscale"
-  >
-  <label for="codiceColore">Codice colore</label>
-  <select
-    id="codiceColore"
-    [(ngModel)]="codiceColore"
-  >
-    <option value="BIANCO">BIANCO</option>
-    <option value="VERDE">VERDE</option>
-    <option value="AZZURRO">AZZURRO</option>
-    <option value="ARANCIONE">ARANCIONE</option>
-    <option value="ROSSO">🔴ROSSO</option>
-  </select>
+  <!-- Data di nascita -->
+  <div class="mb-4">
+    <label for="dataNascita" class="block text-sm font-medium text-gray-700 mb-2">Data di nascita</label>
+    <input
+      type="date"
+      id="dataNascita"
+      [(ngModel)]="dataNascita"
+      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+  </div>
 
+  <!-- Codice fiscale -->
+  <div class="mb-4">
+    <label for="codiceFiscale" class="block text-sm font-medium text-gray-700 mb-2">Codice fiscale</label>
+    <input
+      type="text"
+      id="codiceFiscale"
+      placeholder="Codice fiscale"
+      [(ngModel)]="codiceFiscale"
+      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+  </div>
+
+  <!-- Codice colore -->
+  <div class="mb-6">
+    <label for="codiceColore" class="block text-sm font-medium text-gray-700 mb-2">Codice colore</label>
+    <select
+      id="codiceColore"
+      [(ngModel)]="codiceColore"
+      class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <option value="BIANCO">⚪ BIANCO</option>
+      <option value="VERDE">🟢 VERDE</option>
+      <option value="AZZURRO">🔵 AZZURRO</option>
+      <option value="ARANCIONE">🟠 ARANCIONE</option>
+      <option value="ROSSO">🔴 ROSSO</option>
+    </select>
+  </div>
+
+  <!-- Pulsante Accetta Paziente -->
   <button
     (click)="accettaPaziente()"
     [disabled]="!validateInput()"
+    class="w-full px-6 py-3 rounded-lg bg-green-500 text-white font-semibold shadow-md hover:bg-green-400 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
   >
     ACCETTA PAZIENTE
   </button>

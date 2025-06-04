@@ -1,18 +1,23 @@
-<nav class="navbar">
-  <span class="navbar-title">AFPHospital</span>
-  <div>
-    <a href="#" class="navbar-link">Lista PZ</a>
-    <a href="#" class="navbar-link">Accetta PZ</a>
+<nav class="bg-blue-600 text-white shadow-lg">
+  <div class="container mx-auto flex items-center justify-between p-6">
+    <span class="text-3xl font-extrabold tracking-wide">AFPHospital</span>
+    <div class="flex space-x-6">
+      <a 
+        routerLink="/lista-pz" 
+        class="px-5 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all text-white font-semibold shadow-lg transform hover:scale-105"
+      >
+        Lista PZ
+      </a>
+      <a 
+        routerLink="/accetta-pz" 
+        class="px-5 py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all text-white font-semibold shadow-lg transform hover:scale-105"
+      >
+        Accetta PZ
+      </a>
+    </div>
   </div>
 </nav>
 
-<div class="main-container">
-  <h1 class="main-title">Gestione Pazienti</h1>
-  <div class="button-group">
-    <button class="btn btn-blue">Aggiungi Pazienti</button>
-    <button class="btn btn-green">Accetta Paziente</button>
-  </div>
-  <div class="alert-box">
-    NON CI SONO PAZIENTI
-  </div>
+<div class="container mx-auto mt-8">
+  <router-outlet></router-outlet>
 </div>

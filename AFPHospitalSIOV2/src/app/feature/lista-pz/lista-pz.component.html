@@ -1,33 +1,49 @@
-<p>lista-pz works!</p>
+<p class="text-lg font-semibold text-gray-700 mb-4">Lista Pazienti</p>
 
-<!-- TODO: Impelementare chiamata per recuperare i pz -->
+<!-- Pulsanti principali -->
+<div class="flex space-x-4 mb-6">
+  <button 
+    (click)="api.getListaPazienti()" 
+    class="px-4 py-2 rounded-lg bg-blue-500 text-white font-medium shadow-md hover:bg-blue-400 transition-all"
+  >
+    Recupera Pazienti
+  </button>
+  <button 
+    routerLink="/accetta-pz" 
+    class="px-4 py-2 rounded-lg bg-green-500 text-white font-medium shadow-md hover:bg-green-400 transition-all"
+  >
+    Accetta Pazienti
+  </button>
+</div>
 
-<button (click)="api.getListaPazienti()">GETE PZ</button>
-<button routerLink="/accetta-pz">ACCETTA PZ</button>
-<!--<div>{{api.listaPz() | json}}</div>-->
-
-<div class="pz-list">
-  @for (pz of api.listaPz(); track pz.id_paziente){
-
-    <div class="pz-card">
-      <h3>{{pz.cognome}} {{pz.nome}}</h3>
-      <p>Codice PZ: {{pz.codice}}</p>
-      <p>Data di nascita: {{pz.data_nascita | date:'dd/MM/YYYY'}}</p>
-      <p>Codice fiscale: {{pz.codice_fiscale}}</p>
-      <div class="pz_card__info">
-        <p>{{pz.codice_colore}}</p>
-        <p>{{pz.stato}}</p>
+<!-- Lista pazienti -->
+<div class="pz-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  @for (pz of api.listaPz(); track pz.id_paziente) {
+    <div class="pz-card bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">{{pz.cognome}} {{pz.nome}}</h3>
+      <p class="text-gray-600 mb-1">Codice Paziente: <span class="font-medium">{{pz.codice}}</span></p>
+      <p class="text-gray-600 mb-1">Data di nascita: <span class="font-medium">{{pz.data_nascita | date:'dd/MM/YYYY'}}</span></p>
+      <p class="text-gray-600 mb-1">Codice fiscale: <span class="font-medium">{{pz.codice_fiscale}}</span></p>
+      <div class="pz_card__info flex justify-between items-center mt-4">
+        <p class="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded">{{pz.codice_colore}}</p>
+        <p class="text-sm font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded">{{pz.stato}}</p>
       </div>
-      <div class="pz_card__action">
-        <button (click)="api.traferisciPaziente(pz.id_paziente)">
-          TRASFERISCI
+      <div class="pz_card__action flex space-x-4 mt-6">
+        <button 
+          (click)="api.traferisciPaziente(pz.id_paziente)" 
+          class="px-4 py-2 rounded-lg bg-yellow-500 text-white font-medium shadow-md hover:bg-yellow-400 transition-all"
+        >
+          Trasferisci
         </button>
-        <button (click)="api.dimettiPaziente(pz.id_paziente)">
-          DIMETTI
+        <button 
+          (click)="api.dimettiPaziente(pz.id_paziente)" 
+          class="px-4 py-2 rounded-lg bg-red-500 text-white font-medium shadow-md hover:bg-red-400 transition-all"
+        >
+          Dimetti
         </button>
       </div>
     </div>
   } @empty {
-    <h3>NON CI SONO PAZIENTI</h3>
+    <h3 class="text-lg font-semibold text-gray-700">Non ci sono pazienti</h3>
   }
 </div>
